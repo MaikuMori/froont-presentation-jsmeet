@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Froont - Make responsive webpages without any coding.</title>
+
+		<meta name="description" content="Make responsive webpage without any coding.">
+		<meta name="author" content="Miks Kalniņš">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Froont</h1>
+					<h3>Introduction and technical overview</h3>
+					<p>
+						<small><a href="http://froont.com">froont.com</a></small>
+						<small><a href="http://twitter.com/froontApp">@froontApp</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>So what is Froont?</h2>
+						<p>
+							Webapp to make responsive webpage.
+						</p>
+					</section>
+
+					<section>
+						<h2>Responsive</h2>
+						<p>
+							<blockquote>
+								Responsive web design is an approach to web design in which a site is crafted to provide an optimal viewing experience — easy reading and navigation with a minimum of resizing, panning, and scrolling — across a wide range of devices (from desktop computer monitors to mobile phones).
+							</blockquote>
+							<div style="text-align: right;">— Wikipedia</div>
+						</p>						
+					</section>
+
+1					<section>
+						<h2>Quick demo</h2>
+						<a href="http://localhost:5000/" target="_blank">Launch!</a>
+					</section>	
+				</section>
+
+				<section>
+					<h2>Technical challenges</h2>
+					<ul>
+						<li>WYSIWYG - What you see is what you get</li>
+						<li>Support across various browsers and devices</li>
+						<li>Sane output, no hacks</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Overview</h2>
+						<img src="img/Overview.png" style="width: auto; height: 78%" alt="Froont stack overview">
+					</section>
+
+					<section>
+						<h3>Quick backend overview</h3>
+						<ul>
+							<li>Flask (Python micro web framework)</li>
+							<li>Jinja2 Templates</li>
+							<li>MongoDB</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Frontend overview</h3>
+						<ul>
+							<li>Backbone.js
+								<ul>
+									<li>Thin layer which provides content separation (Data, Views)</li>
+									<li>Not opinionated</li>
+								</ul>
+							</li>
+							<li>Swig templates
+								<ul>
+									<li>Fast</li>
+									<li>Jinja2 compatibility, which allows us to use same templates in frontend and backend.</li>
+								</ul>
+							</li>
+							<li>HTML5 APIs</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Closer look</h2>
+					</section>
+
+					<section>
+						<h3>DOM</h3>
+						<ul>
+							<li>Stored as a tree</li>
+							<li>Backbone-relational - one to one, one to many, many to many relations for Backbone models</li>
+							<li>On backend stored in MongoDB</li>
+							<li>Editor interacts with pages DOM, but doesn't pollute it</li>
+						</ul>	
+					</section>
+
+					<section>
+						<h3>Rendering</h3>
+						<ul>
+							<li>Page must look the same. To achieve that we use same templates for both client and backend</li>
+							<li>Even <q>CSS rendering</q> is the same</li>
+							<li>In editor all controls are rendered outside (on top of) pages DOM</li>
+						</ul>	
+					</section>
+
+					<section>
+						<h3>Images</h3>
+						<ul>
+							<li>HTML5 drag and drop to workspace</li>
+							<li>SVG support
+								<ul>
+									<li>SVGs are cleaned up and made smaller before saving</li>
+									<li>Fallback to VML via Raphael</li>
+									<li>Backend fallback to images if browser is too old</li>
+								</ul>
+							</li>
+							<li>Dynamic image resizer for each device</li>
+						</ul>	
+					</section>
+
+					<section>
+						<h3>UI</h3>
+						<ul>
+							<li>Backbone-forms with custom editors for CSS properties</li>
+							<li>Raphael is used to draw control elements, it offers a lot more customization than plain HTML/CSS</li>
+							<li>move.js to help with CSS3 animations</li>
+						</ul>	
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Testing</h2>
+						<p>It's pain, but pays back.</p>
+					</section>
+
+					<section data-state="alert">
+						<h2>Frontend</h2>
+						<ul>
+							<li>Jasmine - BDD style functional / unit tests</li>
+							<li>Jasmine-jQuery - jQuery helper classes for Jasmine</li>
+							<li>Jasmine-sinon - Sinon glue for Jasmine - mocks, stubs, spies</li>
+							<li>Testem - run tests easily on every browser everywhere, including CasperJS (headless WebKit)</li>
+						</ul>
+					</section>
+
+					<section data-state="soothe">
+						<h2>Backend (easy)</h2>
+						<p>Unittests + Nose</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Questions?</h2>
+				</section>
+
+				<section>
+					<h2>Thanks!</h2>
+					<p>Presentation available on GitHub</p>
+					<small><a href="https://github.com/maikumori/froont-presentation-jsmeet">https://github.com/maikumori/froont-presentation-jsmeet</a></small>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
