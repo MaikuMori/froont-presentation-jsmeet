@@ -20,6 +20,17 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+        <style>
+            .whatis .reveal .state-background {
+                background: rgba( 55, 110, 55, 0.6 );
+            }
+            .sky .reveal .state-background {
+                background: rgba( 25, 75, 135, 0.6 );
+            }
+            .purplish .reveal .state-background {
+                background: rgba( 95, 65, 95, 0.6 );
+            }
+        </style>
     </head>
     <body>
         <div class="reveal">
@@ -32,7 +43,7 @@
                         <small><a href="http://twitter.com/froontApp">@froontApp</a></small>
                     </p>
                 </section>
-                <section>
+                <section data-state="whatis">
                     <section>
                         <h2>So what is Froont?</h2>
                         <p>
@@ -51,7 +62,7 @@
                     </section>
                     <section>
                         <h2>Quick demo</h2>
-                        <a href="http://localhost:5000/" target="_blank">Launch!</a>
+                        <a href="http://localhost:5000/jsdemo/#breakpoint/50ebeee92baa781f9a863050" target="_blank">Launch!</a>
                     </section>
                 </section>
                 <section>
@@ -62,7 +73,7 @@
                         <li>Sane output, no hacks</li>
                     </ul>
                 </section>
-                <section>
+                <section data-state="sky">
                     <section>
                         <h2>Overview</h2>
                         <img alt="Froont stack overview" src="img/Overview.png" style="width: auto; height: 65%">
@@ -95,7 +106,7 @@
                         </ul>
                     </section>
                 </section>
-                <section>
+                <section data-state="purplish">
                     <section>
                         <h2>Closer look</h2>
                     </section>
