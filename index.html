@@ -43,11 +43,20 @@
                         <small><a href="http://twitter.com/froontApp">@froontApp</a></small>
                     </p>
                 </section>
+                <section>
+                    <h2>What I will talk about:</h2>
+                    <ul>
+                        <li>What is Froont</li>
+                        <li>Demo</li>
+                        <li>Technical decisions we made</li>
+                        <li>Interactive questions (ask at any time)</li>
+                    </ul>
+                </section>
                 <section data-state="whatis">
                     <section>
                         <h2>So what is Froont?</h2>
                         <p>
-                            Webapp to make responsive webpage.
+                            A web app to make responsive websites.
                         </p>
                     </section>
                     <section>
@@ -70,7 +79,7 @@
                     <ul>
                         <li>WYSIWYG - What you see is what you get</li>
                         <li>Support across various browsers and devices</li>
-                        <li>Sane output, no hacks</li>
+                        <li>Sane output - pure HTML and CSS</li>
                     </ul>
                 </section>
                 <section data-state="sky">
@@ -116,19 +125,17 @@
                             <li>Stored as a tree</li>
                             <li>Backbone-relational - one to one, one to many, many to many
                                 relations for Backbone models</li>
-                            <li>On backend stored in MongoDB</li>
-                            <li>Editor interacts with pages DOM, but doesn't pollute it</li>
+                            <li>Stored in MongoDB</li>
                         </ul>
                     </section>
                     <section>
                         <h3>Rendering</h3>
                         <ul>
-                            <li>Page must look the same. To achieve that we use same templates for
-                                both client and backend</li>
+                            <li>Page must look the same in the editor and when it's published</li>
                             <li>Even
                                 <q>CSS rendering</q>
                                 is the same</li>
-                            <li>In editor all controls are rendered outside (on top of) pages
+                            <li>In editor all widget controls are rendered outside (on top of) the page
                                 DOM</li>
                         </ul>
                     </section>
@@ -150,7 +157,7 @@
                         <h3>UI</h3>
                         <ul>
                             <li>Backbone-forms with custom editors for CSS properties</li>
-                            <li>Raphael is used to draw control elements, it offers a lot more
+                            <li>Raphael.js is used to draw control elements, it offers a lot more
                                 customization than plain HTML/CSS</li>
                             <li>move.js to help with CSS3 animations</li>
                         </ul>
